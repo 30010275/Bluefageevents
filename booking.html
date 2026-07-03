@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book your event with Bluefage Events - Weddings, corporate events, birthdays, and more.">
+    <title>Book Event - Bluefage Events</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header id="header" class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="assets/images/logo.svg" alt="Bluefage Events Logo">
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="packages.html" class="nav-link">Packages</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                <a href="booking.html" class="btn btn-primary book-btn">Book Event</a>
+                <button class="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" style="min-height:40vh;padding-top:100px;">
+        <div class="hero-background">
+            <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1920" alt="Book event">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Book Your Event</h1>
+                <p class="hero-description">Fill in the details below and we will get back to you within 24 hours</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="booking-section">
+        <div class="container">
+            <div class="booking-form-wrapper">
+                <h2>Event Booking Form</h2>
+                <p>Tell us about your event and we will create something unforgettable.</p>
+                <form id="booking-form" class="booking-form">
+                    <div class="form-group">
+                        <label for="eventType">Event Type</label>
+                        <select name="eventType" id="eventType" class="form-input" required>
+                            <option value="">Select event type</option>
+                            <option value="wedding">Wedding</option>
+                            <option value="corporate">Corporate Event</option>
+                            <option value="birthday">Birthday Party</option>
+                            <option value="private_party">Private Party</option>
+                            <option value="conference">Conference</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="eventDate">Event Date</label>
+                            <input type="date" name="eventDate" id="eventDate" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="guestCount">Expected Guests</label>
+                            <input type="number" name="guestCount" id="guestCount" class="form-input" min="1" max="100000" required placeholder="Number of guests">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Event Location</label>
+                        <input type="text" name="location" id="location" class="form-input" required placeholder="Venue name and address">
+                    </div>
+                    <div class="form-group">
+                        <label for="packageId">Preferred Package (optional)</label>
+                        <select name="packageId" id="packageId" class="form-input">
+                            <option value="">Select a package</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Additional Notes</label>
+                        <textarea name="notes" id="notes" class="form-input form-textarea" placeholder="Any special requests or requirements..." maxlength="2000"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Booking Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo">
+                        <img src="assets/images/logo.svg" alt="Bluefage Events Logo">
+                    </a>
+                    <p class="footer-description">Creating unforgettable experiences since 2014. Your trusted partner for premium event management services.</p>
+                    <div class="footer-newsletter">
+                        <h4>Subscribe to Our Newsletter</h4>
+                        <form id="newsletter-form" class="newsletter-form">
+                            <input type="email" placeholder="Enter your email" required>
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </form>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h4 class="footer-title">Our Services</h4>
+                    <ul class="footer-menu">
+                        <li><a href="services.html">Weddings</a></li>
+                        <li><a href="services.html">Corporate Events</a></li>
+                        <li><a href="services.html">Birthday Parties</a></li>
+                        <li><a href="services.html">Decorations</a></li>
+                        <li><a href="services.html">Photography</a></li>
+                        <li><a href="services.html">Videography</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contact Info</h4>
+                    <ul class="footer-menu">
+                        <li><i class="fas fa-map-marker-alt"></i> Westlands Business Park, Nairobi</li>
+                        <li><i class="fas fa-envelope"></i> info@bluefageevents.com</li>
+                        <li><i class="fas fa-phone"></i> +254 748 868358</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2024 Bluefage Events. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        async function loadPackagesSelect() {
+            try {
+                const res = await API.packages.list();
+                const select = document.querySelector('#packageId');
+                if (res.data) {
+                    res.data.forEach(pkg => {
+                        const opt = document.createElement('option');
+                        opt.value = pkg.id;
+                        opt.textContent = `${pkg.name} - KSh ${Number(pkg.price).toLocaleString()}`;
+                        select.appendChild(opt);
+                    });
+                }
+                const urlParams = new URLSearchParams(window.location.search);
+                const selected = urlParams.get('package');
+                if (selected) select.value = selected;
+            } catch (err) {
+                console.error('Failed to load packages:', err);
+            }
+        }
+        document.addEventListener('DOMContentLoaded', loadPackagesSelect);
+    </script>
+</body>
+</html>

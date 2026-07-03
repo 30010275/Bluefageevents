@@ -69,106 +69,19 @@
         </div>
     </section>
 
-    <!-- ==================== BLOG SECTION ==================== -->
-    <section id="blog" class="blog">
+    <!-- ==================== BLOG LIST SECTION ==================== -->
+    <section id="blog-list" class="blog">
         <div class="container">
-            <div class="blog-grid">
-                <!-- Blog Card 1 -->
-                <article class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600" alt="Wedding Trends 2024">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date"><i class="far fa-calendar"></i> Jan 15, 2024</span>
-                            <span class="blog-category">Weddings</span>
-                        </div>
-                        <h3 class="blog-title">Top Wedding Trends for 2024</h3>
-                        <p class="blog-excerpt">Discover the latest wedding trends that are shaping the industry this year, from sustainable decor to intimate micro-weddings...</p>
-                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-                
-                <!-- Blog Card 2 -->
-                <article class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=600" alt="Corporate Event Planning">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date"><i class="far fa-calendar"></i> Jan 10, 2024</span>
-                            <span class="blog-category">Corporate</span>
-                        </div>
-                        <h3 class="blog-title">Essential Tips for Corporate Event Planning</h3>
-                        <p class="blog-excerpt">Learn how to plan successful corporate events that leave lasting impressions on your clients and attendees...</p>
-                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-                
-                <!-- Blog Card 3 -->
-                <article class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600" alt="Birthday Party Ideas">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date"><i class="far fa-calendar"></i> Jan 5, 2024</span>
-                            <span class="blog-category">Parties</span>
-                        </div>
-                        <h3 class="blog-title">Creative Birthday Party Ideas for All Ages</h3>
-                        <p class="blog-excerpt">Explore unique and creative birthday party themes that work for any age, from kids to adults...</p>
-                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
+            <div class="blog-grid" id="blog-grid"></div>
+            <div id="blog-loader" style="text-align:center;padding:2rem;color:#999;">Loading posts...</div>
+        </div>
+    </section>
 
-                <!-- Blog Card 4 -->
-                <article class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=600" alt="Event Decor">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date"><i class="far fa-calendar"></i> Dec 28, 2023</span>
-                            <span class="blog-category">Decor</span>
-                        </div>
-                        <h3 class="blog-title">Stunning Event Decor Ideas on a Budget</h3>
-                        <p class="blog-excerpt">Transform your venue without breaking the bank with these creative and affordable decoration ideas...</p>
-                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <!-- Blog Card 5 -->
-                <article class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600" alt="Event Photography">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date"><i class="far fa-calendar"></i> Dec 20, 2023</span>
-                            <span class="blog-category">Photography</span>
-                        </div>
-                        <h3 class="blog-title">How to Choose the Right Event Photographer</h3>
-                        <p class="blog-excerpt">Tips for selecting the perfect photographer to capture your special moments in the best light...</p>
-                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <!-- Blog Card 6 -->
-                <article class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600" alt="Event Lighting">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date"><i class="far fa-calendar"></i> Dec 15, 2023</span>
-                            <span class="blog-category">Lighting</span>
-                        </div>
-                        <h3 class="blog-title">The Importance of Lighting in Event Design</h3>
-                        <p class="blog-excerpt">Discover how proper lighting can transform any space and create the perfect atmosphere for your event...</p>
-                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-            </div>
+    <!-- ==================== BLOG DETAIL SECTION ==================== -->
+    <section id="blog-detail" class="blog" style="display:none;">
+        <div class="container">
+            <a href="blog.html" class="btn btn-outline" style="margin-bottom:2rem;display:inline-flex;align-items:center;gap:0.5rem;">&larr; Back to Blog</a>
+            <article id="blog-post-content"></article>
         </div>
     </section>
 
@@ -234,6 +147,7 @@
     </footer>
 
     <!-- External JavaScript -->
+    <script src="js/api.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
