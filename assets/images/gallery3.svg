@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#0a2463"/>
+  <rect x="20" y="20" width="360" height="260" fill="#1e3a8a" rx="10"/>
+  <text x="200" y="130" font-family="Poppins, sans-serif" font-size="28" font-weight="700" text-anchor="middle" fill="#d4af37">Birthday</text>
+  <text x="200" y="160" font-family="Poppins, sans-serif" font-size="16" font-weight="400" text-anchor="middle" fill="#ffffff">Birthday Celebrations</text>
+  <circle cx="200" cy="210" r="40" fill="#d4af37" opacity="0.2"/>
+  <text x="200" y="218" font-family="Poppins, sans-serif" font-size="30" text-anchor="middle" fill="#d4af37">🎂</text>
+</svg>

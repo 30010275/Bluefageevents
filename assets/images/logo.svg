@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" width="200" height="120">
+  <!-- Background -->
+  <rect width="200" height="120" fill="white"/>
+  
+  <!-- Gold Fireworks/Sparkles above BE -->
+  <g fill="#d4af37">
+    <polygon points="100,5 102,15 100,12 98,15" />
+    <polygon points="85,10 87,18 85,15 83,18" />
+    <polygon points="115,10 117,18 115,15 113,18" />
+    <circle cx="75" cy="15" r="2" />
+    <circle cx="125" cy="15" r="2" />
+    <circle cx="90" cy="8" r="1.5" />
+    <circle cx="110" cy="8" r="1.5" />
+  </g>
+  
+  <!-- Stylized BE Letters -->
+  <text x="100" y="55" font-family="Poppins, sans-serif" font-size="48" font-weight="800" text-anchor="middle">
+    <tspan fill="#0a2463">B</tspan><tspan fill="#d4af37">E</tspan>
+  </text>
+  
+  <!-- Blue Carpet -->
+  <rect x="60" y="60" width="80" height="8" fill="#0a2463" rx="2"/>
+  
+  <!-- Gold Stanchions -->
+  <g fill="#d4af37">
+    <!-- Left stanchion -->
+    <rect x="55" y="55" width="3" height="20" rx="1"/>
+    <circle cx="56.5" cy="55" r="2.5"/>
+    <circle cx="56.5" cy="75" r="2"/>
+    
+    <!-- Right stanchion -->
+    <rect x="142" y="55" width="3" height="20" rx="1"/>
+    <circle cx="143.5" cy="55" r="2.5"/>
+    <circle cx="143.5" cy="75" r="2"/>
+  </g>
+  
+  <!-- Rope between stanchions -->
+  <path d="M 59 57 Q 100 65 141 57" stroke="#d4af37" stroke-width="2" fill="none"/>
+  
+  <!-- Company Name -->
+  <text x="100" y="95" font-family="Poppins, sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="#0a2463">
+    BLUEFAGE EVENTS
+  </text>
+  <text x="100" y="110" font-family="Poppins, sans-serif" font-size="8" font-weight="400" text-anchor="middle" fill="#6c757d">
+    LIMITED
+  </text>
+</svg>
