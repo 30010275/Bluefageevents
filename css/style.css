@@ -1713,6 +1713,50 @@ section {
     text-align: center;
 }
 
+.auth-divider {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    color: #999;
+    font-size: 0.8rem;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e0e0e0;
+}
+
+.auth-divider span {
+    padding: 0 0.75rem;
+}
+
+.btn-google {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    background: #fff;
+    color: #3c4043;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-google:hover {
+    background: #f8f9fa;
+    border-color: #c6c9cc;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
 /* ==================== ACCOUNT MENU ==================== */
 .account-menu {
     position: absolute;

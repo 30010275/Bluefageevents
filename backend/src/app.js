@@ -8,9 +8,12 @@ const path = require('path');
 
 const { errorHandler } = require('./middleware/errorHandler');
 const { globalLimiter } = require('./middleware/rateLimiter');
+const passport = require('./config/passport');
 const routes = require('./routes');
 
 const app = express();
+
+app.use(passport.initialize());
 
 app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
 const allowedOrigins = [

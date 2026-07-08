@@ -63,9 +63,25 @@ const getMe = async (req, res) => {
   const { prisma } = require('../config/database');
   const user = await prisma.user.findUnique({
     where: { id: req.user.id },
-    select: { id: true, name: true, email: true, role: true, createdAt: true },
+    select: { id: true, name: true, email: true, role: true, avatar: true, createdAt: true },
   });
   res.json({ success: true, data: user });
 };
 
-module.exports = { register, login, refresh, logout, getMe };
+const googleCallback = async (req, res, next) => {
+  try {
+    const result = await authService.googleLogin(req.user);
+    res.cookie('refreshToken', result.refreshToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+    });
+    const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:5501';
+    res.redirect(`${frontendUrl}?token=${result.accessToken}`);
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { register, login, refresh, logout, getMe, googleCallback };

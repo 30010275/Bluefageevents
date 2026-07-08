@@ -85,6 +85,23 @@ const refreshUserToken = async (refreshToken) => {
   };
 };
 
+const googleLogin = async (profile) => {
+  const user = await prisma.user.findUnique({ where: { id: profile.id } });
+  const accessToken = generateAccessToken(user.id, user.role);
+  const refreshToken = generateRefreshToken(user.id, user.role);
+
+  await prisma.user.update({
+    where: { id: user.id },
+    data: { refreshToken },
+  });
+
+  return {
+    user: { id: user.id, name: user.name, email: user.email, role: user.role, avatar: user.avatar },
+    accessToken,
+    refreshToken,
+  };
+};
+
 const logoutUser = async (userId) => {
   await prisma.user.update({
     where: { id: userId },
