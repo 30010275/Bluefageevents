@@ -24,9 +24,11 @@
     <!-- External CSS -->
     <link rel="stylesheet" href="css/style.css">
     <style>
-        .hero-slideshow { position: absolute; inset: 0; overflow: hidden; }
+        .hero-slideshow { position: absolute; inset: 0; overflow: hidden; z-index: 1; }
         .hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease-in-out; }
         .hero-slide.active { opacity: 1; }
+        .hero-slide.zoom { animation: heroZoom 20s ease-in-out infinite alternate; }
+        @keyframes heroZoom { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
     </style>
 </head>
 <body>
@@ -64,8 +66,8 @@
 
     <!-- ==================== HERO SECTION ==================== -->
     <section id="home" class="hero">
-        <div class="hero-background hero-slideshow" id="heroSlideshow">
-            <div class="hero-slide active" style="background-image: url('assets/images/hero.jpg')"></div>
+        <div class="hero-slideshow" id="heroSlideshow">
+            <div class="hero-slide active zoom" style="background-image: url('assets/images/hero.jpg')"></div>
         </div>
         <div class="hero-overlay"></div>
         <div class="container">
@@ -642,15 +644,17 @@
 
             try {
                 const data = await API.gallery.list();
-                const galleryImages = data.data || data;
-                if (galleryImages.length > 0) {
-                    images = galleryImages.map(item => item.image || item.imageUrl || item.url).filter(Boolean);
+                const galleryItems = data.data || data;
+                if (Array.isArray(galleryItems) && galleryItems.length > 0) {
+                    const urls = galleryItems.map(item => item.imageUrl || item.image || item.url).filter(Boolean);
+                    if (urls.length > 0) images = urls;
                 }
             } catch (e) { console.warn('Could not load gallery for hero slideshow, using defaults'); }
 
+            container.innerHTML = '';
             images.forEach((src, i) => {
                 const div = document.createElement('div');
-                div.className = 'hero-slide' + (i === 0 ? ' active' : '');
+                div.className = 'hero-slide' + (i === 0 ? ' active zoom' : '');
                 div.style.backgroundImage = `url('${src}')`;
                 container.appendChild(div);
             });
@@ -658,9 +662,9 @@
             let current = 0;
             setInterval(() => {
                 const slides = container.querySelectorAll('.hero-slide');
-                slides[current].classList.remove('active');
+                slides[current].classList.remove('active', 'zoom');
                 current = (current + 1) % slides.length;
-                slides[current].classList.add('active');
+                slides[current].classList.add('active', 'zoom');
             }, 4000);
         })();
     </script>
