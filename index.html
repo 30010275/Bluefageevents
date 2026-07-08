@@ -23,6 +23,11 @@
     
     <!-- External CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .hero-slideshow { position: absolute; inset: 0; overflow: hidden; }
+        .hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease-in-out; }
+        .hero-slide.active { opacity: 1; }
+    </style>
 </head>
 <body>
     <!-- ==================== HEADER SECTION ==================== -->
@@ -59,8 +64,8 @@
 
     <!-- ==================== HERO SECTION ==================== -->
     <section id="home" class="hero">
-        <div class="hero-background">
-            <img src="assets/images/hero.jpg" alt="Event background">
+        <div class="hero-background hero-slideshow" id="heroSlideshow">
+            <div class="hero-slide active" style="background-image: url('assets/images/hero.jpg')"></div>
         </div>
         <div class="hero-overlay"></div>
         <div class="container">
@@ -630,6 +635,35 @@
 
     <!-- External JavaScript -->
     <script src="js/api.js"></script>
+    <script>
+        (async function heroSlideshow() {
+            const container = document.getElementById('heroSlideshow');
+            let images = ['assets/images/hero.jpg'];
+
+            try {
+                const data = await API.gallery.list();
+                const galleryImages = data.data || data;
+                if (galleryImages.length > 0) {
+                    images = galleryImages.map(item => item.image || item.imageUrl || item.url).filter(Boolean);
+                }
+            } catch (e) { console.warn('Could not load gallery for hero slideshow, using defaults'); }
+
+            images.forEach((src, i) => {
+                const div = document.createElement('div');
+                div.className = 'hero-slide' + (i === 0 ? ' active' : '');
+                div.style.backgroundImage = `url('${src}')`;
+                container.appendChild(div);
+            });
+
+            let current = 0;
+            setInterval(() => {
+                const slides = container.querySelectorAll('.hero-slide');
+                slides[current].classList.remove('active');
+                current = (current + 1) % slides.length;
+                slides[current].classList.add('active');
+            }, 4000);
+        })();
+    </script>
     <script src="js/main.js"></script>
 </body>
 </html>
