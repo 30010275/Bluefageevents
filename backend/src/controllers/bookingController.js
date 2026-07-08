@@ -164,16 +164,20 @@ const updateBooking = async (req, res, next) => {
 };
 
 const getMyBookings = async (req, res, next) => {
-  const { status } = req.query;
-  const where = { userId: req.user.id };
-  if (status) where.status = status;
+  try {
+    const { status } = req.query;
+    const where = { userId: req.user.id };
+    if (status) where.status = status;
 
-  const bookings = await prisma.booking.findMany({
-    where,
-    orderBy: { createdAt: 'desc' },
-    include: { package: { select: { id: true, name: true } } },
-  });
-  res.json({ success: true, data: bookings });
+    const bookings = await prisma.booking.findMany({
+      where,
+      orderBy: { createdAt: 'desc' },
+      include: { package: { select: { id: true, name: true } } },
+    });
+    res.json({ success: true, data: bookings });
+  } catch (error) {
+    next(error);
+  }
 };
 
 module.exports = { createBooking, getBookings, getBooking, updateBookingStatus, updateBooking, deleteBooking, getMyBookings };

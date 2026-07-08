@@ -52,6 +52,7 @@
     --gradient-gold: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
     --gradient-blue: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
     --gradient-hero: linear-gradient(135deg, var(--primary-blue-dark) 0%, var(--primary-blue) 50%, var(--primary-blue-light) 100%);
+    --primary: var(--primary-blue);
 }
 
 /* ==================== RESET & BASE STYLES ==================== */
@@ -1537,13 +1538,6 @@ section {
     margin-bottom: 1.5rem;
     color: var(--primary);
     font-size: 1.25rem;
-}
-
-.contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    align-items: start;
 }
 
 @media (max-width: 768px) {

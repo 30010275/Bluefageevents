@@ -8,7 +8,7 @@ const validate = (req, res, next) => {
       message: err.msg,
     }));
 
-    return res.status(200).json({
+    return res.status(400).json({
       success: false,
       message: 'Validation failed',
       errors: formattedErrors,

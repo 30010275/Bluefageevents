@@ -109,4 +109,4 @@ const logoutUser = async (userId) => {
   });
 };
 
-module.exports = { registerUser, loginUser, refreshUserToken, logoutUser };
+module.exports = { registerUser, loginUser, refreshUserToken, googleLogin, logoutUser };
