@@ -248,7 +248,7 @@ button {
     display: flex;
     align-items: center;
     padding-top: 80px;
-    background: var(--primary-blue-dark);
+    background: #000;
     overflow: hidden;
 }
 
@@ -306,9 +306,8 @@ button {
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--gradient-hero);
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.6) 0%, rgba(30, 64, 175, 0.4) 50%, rgba(59, 130, 246, 0.2) 100%);
     z-index: 2;
-    opacity: 0.95;
 }
 
 .hero-content {
