@@ -1,5 +1,7 @@
 const API = {
-  BASE_URL: 'http://localhost:4000/api',
+  BASE_URL: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? 'http://localhost:4000/api'
+    : 'https://bluefage.onrender.com/api',
 
   getToken() {
     return localStorage.getItem('token');
