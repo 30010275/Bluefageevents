@@ -13,7 +13,9 @@ router.post('/refresh', authController.refresh);
 router.post('/logout', authenticate, authController.logout);
 router.get('/me', authenticate, authController.getMe);
 
-router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'], session: false }));
-router.get('/google/callback', passport.authenticate('google', { session: false, failureRedirect: `${process.env.FRONTEND_URL || 'http://localhost:5501'}?auth=failed` }), authController.googleCallback);
+if (process.env.GOOGLE_CLIENT_ID) {
+  router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'], session: false }));
+  router.get('/google/callback', passport.authenticate('google', { session: false, failureRedirect: `${process.env.FRONTEND_URL || 'http://localhost:5501'}?auth=failed` }), authController.googleCallback);
+}
 
 module.exports = router;
