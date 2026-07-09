@@ -640,16 +640,24 @@
     <script>
         (async function heroSlideshow() {
             const container = document.getElementById('heroSlideshow');
-            let images = ['https://images.unsplash.com/photo-1511578314322-379afb476865?w=1600'];
+            let images = [];
 
             try {
                 const data = await API.gallery.list();
                 const galleryItems = data.data || data;
                 if (Array.isArray(galleryItems) && galleryItems.length > 0) {
-                    const urls = galleryItems.map(item => item.imageUrl || item.image || item.url).filter(Boolean);
-                    if (urls.length > 0) images = urls;
+                    images = galleryItems.map(item => item.imageUrl || item.image || item.url).filter(Boolean);
                 }
-            } catch (e) { console.warn('Could not load gallery for hero slideshow, using defaults'); }
+            } catch (e) {}
+
+            if (images.length === 0) {
+                const galleryImgs = document.querySelectorAll('.gallery-grid .gallery-item img');
+                images = Array.from(galleryImgs).map(img => img.src).filter(Boolean);
+            }
+
+            if (images.length === 0) {
+                images = ['https://images.unsplash.com/photo-1511578314322-379afb476865?w=1600'];
+            }
 
             container.innerHTML = '';
             images.forEach((src, i) => {
