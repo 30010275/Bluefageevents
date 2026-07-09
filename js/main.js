@@ -341,10 +341,12 @@ async function loadBlogs() {
 
 async function loadGallery() {
   try {
+    const grid = document.querySelector('#gallery-grid');
+    if (!grid) return;
+
     const res = await API.gallery.list();
     const images = res.data;
-    const grid = document.querySelector('.gallery-grid');
-    if (!grid || !images || images.length === 0) return;
+    if (!images || images.length === 0) return;
 
     grid.innerHTML = images.map(img => `
       <div class="gallery-item">
@@ -358,6 +360,7 @@ async function loadGallery() {
     initRevealObserver();
   } catch (err) {
     console.error('Failed to load gallery:', err);
+    document.querySelector('#gallery-loader') && (document.querySelector('#gallery-loader').textContent = 'Could not load gallery');
   }
 }
 
