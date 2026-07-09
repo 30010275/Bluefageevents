@@ -25,10 +25,9 @@
     <link rel="stylesheet" href="css/style.css">
     <style>
         .hero-slideshow { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
-        .hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease-in-out; }
-        .hero-slide.active { opacity: 1; }
-        .hero-slide.zoom { animation: heroZoom 20s ease-in-out infinite alternate; }
-        @keyframes heroZoom { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
+        .hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out; transform: scale(1.05); }
+        .hero-slide.active { opacity: 1; transform: scale(1); }
+        .hero-slide::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.4); backdrop-filter: blur(4px); }
     </style>
 </head>
 <body>
@@ -656,13 +655,13 @@
             }
 
             if (images.length === 0) {
-                images = ['https://images.unsplash.com/photo-1511578314322-379afb476865?w=1600'];
+                images = ['https://images.unsplash.com/photo-1511578314322-379afb476865?w=1920&q=80'];
             }
 
             container.innerHTML = '';
             images.forEach((src, i) => {
                 const div = document.createElement('div');
-                div.className = 'hero-slide' + (i === 0 ? ' active zoom' : '');
+                div.className = 'hero-slide' + (i === 0 ? ' active' : '');
                 div.style.backgroundImage = `url('${src}')`;
                 container.appendChild(div);
             });
@@ -670,9 +669,9 @@
             let current = 0;
             setInterval(() => {
                 const slides = container.querySelectorAll('.hero-slide');
-                slides[current].classList.remove('active', 'zoom');
+                slides[current].classList.remove('active');
                 current = (current + 1) % slides.length;
-                slides[current].classList.add('active', 'zoom');
+                slides[current].classList.add('active');
             }, 4000);
         })();
     </script>
