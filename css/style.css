@@ -321,6 +321,48 @@ button {
     animation: fadeInUp 1s ease-out 0.6s backwards;
 }
 
+/* ==================== PAGE HERO (sub-pages) ==================== */
+.page-hero {
+    position: relative;
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px;
+    background: var(--primary-blue-dark);
+    overflow: hidden;
+}
+
+.page-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+}
+
+.page-hero .hero-overlay {
+    z-index: 1;
+}
+
+.page-hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: var(--white);
+}
+
+.page-hero-content h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.page-hero-content p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
 /* ==================== SECTION STYLES ==================== */
 section {
     padding: var(--spacing-xxl) 0;
